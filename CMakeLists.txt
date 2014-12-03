@@ -10,15 +10,15 @@ set(CMAKE_AUTOMOC ON)
 # Find the QtWidgets library
 find_package(Qt5Widgets)
 
-SET(harmonia_SOURCES main.cpp mainwindow.cpp)
-SET(harmonia_HEADERS mainwindow.h)
+SET(harmonia_SOURCES main.cpp mainwindow.cpp note.cpp)
+SET(harmonia_HEADERS mainwindow.h note.h)
 
 QT5_WRAP_UI(UIS_HDRS
 	mainwindow.ui
 )
 
 # Tell CMake to create the harmonia executable
-add_executable(harmonia WIN32 ${harmonia_SOURCES} ${UIS_HDRS})
+add_executable(harmonia WIN32 ${harmonia_SOURCES} ${harmonia_HEADERS} ${UIS_HDRS})
 
 # Use the Widgets module from Qt 5.
 target_link_libraries(harmonia Qt5::Widgets)
